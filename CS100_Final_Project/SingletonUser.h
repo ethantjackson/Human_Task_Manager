@@ -2,6 +2,7 @@
 #include "TaskList.h"
 
 #include <fstream>
+#include <cstring>
 #include <utility>
 
 using namespace std;
@@ -15,6 +16,7 @@ private:
 	string username = "none";
 
 	vector<pair<string,string>> users;
+	void saveUsers();
 
 	SingletonUser();
 	~SingletonUser() {
