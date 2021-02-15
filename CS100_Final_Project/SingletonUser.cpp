@@ -12,6 +12,7 @@ SingletonUser::SingletonUser() {
 			getline(sfile, password, ',');
 			users.push_back(make_pair(username, password));
 		}
+		sfile.close();
 	}
 
 	login();
