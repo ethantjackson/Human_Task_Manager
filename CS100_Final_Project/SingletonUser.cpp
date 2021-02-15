@@ -70,12 +70,17 @@ void SingletonUser::save()
 		for (auto p : users) {
 			sfile << p.first << "," << p.second << ",";
 		}
+		sfile.close();
 	}
-
+	
 	sfile.open(username + ".txt");
 	if (sfile.is_open()) {
 		sfile << homeList->save();
 		sfile.close();
+	}
+	else {
+		cout << "Failed to open: " << username << ".txt" << endl;
+		exit(1);
 	}
 }
 
