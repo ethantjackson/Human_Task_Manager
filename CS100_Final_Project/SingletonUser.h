@@ -16,6 +16,7 @@ private:
 	string username = "none";
 
 	vector<pair<string,string>> users;
+	void saveUsers();
 
 	SingletonUser();
 	~SingletonUser() {

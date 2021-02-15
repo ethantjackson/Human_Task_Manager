@@ -64,16 +64,9 @@ void SingletonUser::navigate() {
 
 void SingletonUser::save()
 {
-	ofstream sfile;
+	saveUsers();
 
-	sfile.open("Users.txt");
-	if (sfile.is_open()) {
-		for (auto p : users) {
-			sfile << p.first << "," << p.second << ",";
-		}
-		sfile.close();
-	}
-	
+	ofstream sfile;
 	sfile.open(username + ".txt");
 	if (sfile.is_open()) {
 		sfile << homeList->save();
@@ -83,6 +76,18 @@ void SingletonUser::save()
 		cout << "Failed to open: " << username << ".txt" << endl;
 		exit(1);
 	}
+}
+
+void SingletonUser::saveUsers() {
+	 ofstream sfile;
+
+        sfile.open("Users.txt");
+        if (sfile.is_open()) {
+                for (auto p : users) {
+                        sfile << p.first << "," << p.second << ",";
+                }
+                sfile.close();
+        }
 }
 
 void SingletonUser::reset()
@@ -140,7 +145,7 @@ void SingletonUser::login()
 						users = removedUser;
 						string tmp = name + ".txt";
 						remove(tmp.c_str());
-						save();
+						saveUsers();
 					}
 					else {
 						cout << "Invalid Choice" << endl;
