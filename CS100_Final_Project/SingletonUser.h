@@ -2,6 +2,7 @@
 #include "TaskList.h"
 
 #include <fstream>
+#include <cstring>
 #include <utility>
 
 using namespace std;
