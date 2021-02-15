@@ -100,6 +100,7 @@ void SingletonUser::reset()
 		if (data != "") {
 			homeList->load(data);
 		}
+   		sfile.close();
 	}
 	curr = homeList;
 }
