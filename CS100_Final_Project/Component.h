@@ -12,8 +12,6 @@ class Component {
 public:
 	virtual ~Component() = default;
 
-	virtual Component* getParent() = 0;
-	virtual Component* navigate(string) = 0;
 	virtual string getTitle() = 0;
 	virtual int numSubTasks() = 0;
 	virtual int getLevel() = 0;
@@ -27,6 +25,10 @@ public:
 	virtual void add(string) = 0;
 	virtual void remove() = 0;
 	virtual void rename(string) = 0;
+	
+	//Iterator functions
+	virtual int num_children() = 0;
+	virtual Component* get_child(int index) = 0;
 };
 
 #endif
