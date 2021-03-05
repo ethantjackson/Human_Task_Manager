@@ -1,6 +1,7 @@
-#include "SingletonUser.h"
+#include "UserControl.h"
 
-SingletonUser::SingletonUser() {
+UserControl::UserControl() {
+	init = new InitFactory();
 	homeList = new TaskList("Home List", nullptr);
 	ifstream sfile;
 
@@ -25,14 +26,14 @@ SingletonUser::SingletonUser() {
 			data += title;
 		}
 		if (data != "") {
-			homeList->load(data);
+			homeList = init->load(data);
 		}
 		sfile.close();
 	}
 	curr = homeList;
 }
 
-void SingletonUser::navigate() {
+void UserControl::navigate() {
 	char choice;
 	cout << "Would you like to (1) move back one list, (2) move to subtask, or (3) stay: ";
 	cin >> choice;
@@ -62,7 +63,7 @@ void SingletonUser::navigate() {
 	}
 }
 
-void SingletonUser::save()
+void UserControl::save()
 {
 	saveUsers();
 
@@ -78,7 +79,7 @@ void SingletonUser::save()
 	}
 }
 
-void SingletonUser::saveUsers() {
+void UserControl::saveUsers() {
 	 ofstream sfile;
 
         sfile.open("Users.txt");
@@ -90,7 +91,7 @@ void SingletonUser::saveUsers() {
         }
 }
 
-void SingletonUser::reset()
+void UserControl::reset()
 {
 	delete homeList;
 	homeList = new TaskList("Home List", nullptr);
@@ -103,14 +104,14 @@ void SingletonUser::reset()
 			data += token;
 		}
 		if (data != "") {
-			homeList->load(data);
+			homeList = init->load(data);
 		}
    		sfile.close();
 	}
 	curr = homeList;
 }
 
-void SingletonUser::login()
+void UserControl::login()
 {
 	this->username = "none";
 	string name;
