@@ -140,13 +140,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Component.h" />
-    <ClInclude Include="SingletonUser.h" />
+    <ClInclude Include="InitFactory.h" />
+    <ClInclude Include="UserControl.h" />
     <ClInclude Include="Task.h" />
     <ClInclude Include="TaskList.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="InitFactory.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SingletonUser.cpp" />
+    <ClCompile Include="UserControl.cpp" />
     <ClCompile Include="Task.cpp" />
     <ClCompile Include="TaskList.cpp" />
   </ItemGroup>
